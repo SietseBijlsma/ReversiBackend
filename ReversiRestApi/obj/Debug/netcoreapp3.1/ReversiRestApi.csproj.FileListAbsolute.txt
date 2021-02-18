@@ -1,0 +1,125 @@
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.exe
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.deps.json
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.runtimeconfig.json
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.runtimeconfig.dev.json
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.AssemblyInfoInputs.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.AssemblyInfo.cs
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.csproj.CoreCompileInputs.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\staticwebassets\ReversiRestApi.StaticWebAssets.Manifest.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\staticwebassets\ReversiRestApi.StaticWebAssets.xml
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\ReversiRestApi.styles.css
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.RazorTargetAssemblyInfo.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.genruntimeconfig.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.csprojAssemblyReference.cache
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.csproj.CopyComplete
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Sietse Bijlsma\source\repos\RestApi\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.exe
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.deps.json
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.runtimeconfig.json
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.runtimeconfig.dev.json
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\ReversiRestApi.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.AssemblyInfoInputs.cache
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.AssemblyInfo.cs
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.csproj.CoreCompileInputs.cache
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\staticwebassets\ReversiRestApi.StaticWebAssets.Manifest.cache
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\staticwebassets\ReversiRestApi.StaticWebAssets.xml
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\ReversiRestApi.styles.css
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.RazorTargetAssemblyInfo.cache
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.csproj.CopyComplete
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.dll
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.pdb
+C:\Users\Sietse Bijlsma\Desktop\SE 2 projects\ReversiBackend\ReversiBackend\ReversiRestApi\obj\Debug\netcoreapp3.1\ReversiRestApi.genruntimeconfig.cache
