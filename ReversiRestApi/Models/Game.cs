@@ -406,7 +406,7 @@ namespace ReversiRestApi.Models
          *
          * @return Game has started
          */
-        public bool StartGame(string token)
+        public bool StartGame()
         {
             if (Player2Token == null)
                 return false;
@@ -448,7 +448,7 @@ namespace ReversiRestApi.Models
          */
         public bool Join(string player)
         {
-            if (Player2Token is null && Status == GameStatus.Waiting)
+            if ((Player2Token == String.Empty || Player2Token is null) && Status == GameStatus.Waiting)
             {
                 Player2Token = player;
                 return true;

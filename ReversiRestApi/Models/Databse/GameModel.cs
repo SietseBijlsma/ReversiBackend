@@ -53,6 +53,7 @@ namespace ReversiRestApi.Models.Databse
         {
             return new GameModel()
             {
+                ID = game.ID,
                 Token = game.Token,
                 Description = game.Description,
                 Player1Token = game.Player1Token,

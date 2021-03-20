@@ -1,0 +1,102 @@
+.feedbackWidget {
+  background: none;
+  color: black;
+  padding: 1.2rem;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 30%;
+  min-width: 150px;
+  width: auto;
+  height: auto;
+  opacity: 0;
+  transition: background-color 3s;
+  overflow: hidden;
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
+  .feedbackWidget.alert-success {
+    background-color: #277a27; }
+  .feedbackWidget.alert-danger {
+    background-color: red; }
+  .feedbackWidget.active {
+    opacity: 1; }
+  .feedbackWidget .feedbackWidget-p {
+    color: #4e4d4d; }
+  .feedbackWidget .feedbackWidget-times {
+    display: inline-block;
+    position: absolute;
+    top: 10%;
+    left: 85%; }
+  .feedbackWidget .feedbackWidget-buttons {
+    display: inline-block; }
+  .feedbackWidget .button {
+    display: inline-block;
+    padding: 8px 13px;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px #999;
+    margin: 0.2rem; }
+    .feedbackWidget .button:hover {
+      background-color: #3e8e41; }
+    .feedbackWidget .button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px); }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@media only screen and (max-width: 600px) {
+  .feedbackWidget .feedbackWidget-check {
+    display: none; }
+  .feedbackWidget .button {
+    font-size: 12px; } }
+
+.board {
+  display: grid;
+  border: 0.2rem solid black;
+  width: calc(4rem * 8);
+  height: calc(4rem * 8);
+  box-sizing: border-box;
+  margin: auto; }
+
+.cell {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  border: 0.12rem solid black;
+  padding: 5%;
+  box-sizing: border-box; }
+  .cell .fiche {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%; }
+    .cell .fiche.black {
+      background-color: black;
+      animation-name: fadeIn;
+      animation-duration: .5s; }
+    .cell .fiche.white {
+      background-color: white;
+      animation-name: fadeIn;
+      animation-duration: .5s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }

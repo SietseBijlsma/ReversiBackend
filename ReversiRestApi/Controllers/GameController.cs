@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
+using ReversiRestApi.DAL;
 using ReversiRestApi.Enums;
 using ReversiRestApi.Interfaces;
 using ReversiRestApi.Models;
 
 namespace ReversiRestApi.Controllers
 {
-    [Route("api/Game")]
+    [Route("api/[controller]")]
     [ApiController]
     public class GameController : ControllerBase
     {
@@ -22,7 +23,11 @@ namespace ReversiRestApi.Controllers
 
         [HttpGet("waiting")]
         public ActionResult<IEnumerable<ApiGame>> GetGamesWithWaitingPlayers() => iRepository
-            .GetGames().FindAll(x => x.Player2Token == null).Select(ApiGame.GameToApiGame).ToList();
+            .GetGames().FindAll(x => x.Status == GameStatus.Waiting).Select(ApiGame.GameToApiGame).ToList();
+
+        [HttpGet("waitingNotFull")]
+        public ActionResult<IEnumerable<ApiGame>> GetGamesWithWaitingPlayersNotFull() => iRepository
+            .GetGames().FindAll(x => x.Status == GameStatus.Waiting && x.Player2Token == String.Empty).Select(ApiGame.GameToApiGame).ToList();
 
         [HttpGet]
         public ActionResult<IEnumerable<ApiGame>> GetAllGames() =>
@@ -38,14 +43,17 @@ namespace ReversiRestApi.Controllers
         }
 
         [HttpPost]
-        public void AddNewGame([FromBody] ApiGame game)
+        public ApiGame AddNewGame([FromBody] ApiGame game)
         {
-            iRepository.AddGame(new Game()
+            var result = iRepository.AddGame(new Game()
             {
                 Description = game.Description,
                 Player1Token = game.Player1Token,
+                Status = GameStatus.Waiting,
             });
+            return ApiGame.GameToApiGame(result);
         }
+
         [HttpPut("{token}/join")]
         public ActionResult<ApiGame> JoinGame(string token, [FromBody] ApiMove body)
         {
@@ -56,6 +64,7 @@ namespace ReversiRestApi.Controllers
             if (!game.Join(body.Player))
                 return Unauthorized();
 
+            var result = iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
         }
 
@@ -85,7 +94,7 @@ namespace ReversiRestApi.Controllers
             if (game is null)
                 return NotFound();
 
-            var startingGame = game.StartGame(token);
+            var startingGame = game.StartGame();
 
             if (startingGame == false)
                 return Forbid();

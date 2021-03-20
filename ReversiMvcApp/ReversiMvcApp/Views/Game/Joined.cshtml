@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ReversiRestApi.Models.ApiGame>
+
+@{
+    ViewData["Title"] = "Joined";
+}
+
+<h1>Joined</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player1Token)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player2Token)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player1Token)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player2Token)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Board" asp-route-token="@item.Token">Join</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

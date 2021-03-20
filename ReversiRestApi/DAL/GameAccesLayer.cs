@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using ReversiRestApi.Interfaces;
 using ReversiRestApi.Models;
@@ -19,11 +20,12 @@ namespace ReversiRestApi.DAL
             Games = Context.Games;
         }
 
-        public void AddGame(Game game)
+        public Game AddGame(Game game)
         {
             game.Token = RandomStringGenerator.RandomString(15, true);
             Context.Add(GameModel.FromGame(game));
             Context.SaveChanges();
+            return game;
         }
 
         public Game GetGame(string gameToken)
@@ -40,6 +42,16 @@ namespace ReversiRestApi.DAL
         public List<Game> GetGames()
         {
             return Games.Select(x => x.ToGame()).ToList();
+        }
+
+        public bool UpdateGame(Game game)
+        {
+            var local = Context.Games.FirstOrDefault(x => x.ID == game.ID);
+            Context.Entry(local).State = EntityState.Detached;
+            local = GameModel.FromGame(game);
+
+            Context.Entry(local).State = EntityState.Modified;
+            return Context.SaveChanges() > 0;
         }
     }
 }

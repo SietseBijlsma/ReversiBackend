@@ -20,6 +20,8 @@ namespace ReversiRestApi
 {
     public class Startup
     {
+        private readonly string MyAllowedSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +38,18 @@ namespace ReversiRestApi
 
             var dbContext = services.BuildServiceProvider().GetRequiredService<DatabaseContext>();
             services.AddSingleton(typeof(IGameRepository), new GameAccessLayer(dbContext));
+            //services.AddSingleton<IGameRepository, GameRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowedSpecificOrigins, builder =>
+                {
+                    builder.WithOrigins("https://localhost:44324", "http://localhost:5500", "http://127.0.0.1:5500", "https://localhost:5001/api/game/move")
+                        .WithMethods("GET", "POST", "PUT")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,6 +62,8 @@ namespace ReversiRestApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowedSpecificOrigins);
 
             app.UseAuthorization();
 

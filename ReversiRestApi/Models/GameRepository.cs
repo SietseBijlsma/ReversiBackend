@@ -26,18 +26,26 @@ namespace ReversiRestApi.Models
             Game2.Token = "bbbbb";
             Game3.Token = "ccccc";
             Game1.Status = GameStatus.Waiting;
+            Game2.Status = GameStatus.Running;
+            Game3.Status = GameStatus.Waiting;
             Games = new List<Game> { Game1, Game2, Game3 };
         }
 
-        public void AddGame(Game game)
+        public Game AddGame(Game game)
         {
             Games.Add(game);
             game.Token = RandomStringGenerator.RandomString(15, true);
             game.Status = GameStatus.Waiting;
+            return game;
         }
 
         public List<Game> GetGames() => Games;
         public Game GetGame(string GameToken) => Games.FirstOrDefault(x => x.Token == GameToken);
+
+        public bool UpdateGame(Game game)
+        {
+            return true;
+        }
     }
 
 }

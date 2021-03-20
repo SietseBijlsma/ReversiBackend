@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiRestApi", "ReversiRe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiRestApi.Test", "ReversiRestApi.Test\ReversiRestApi.Test.csproj", "{3DE566D8-B36F-4C87-93FA-724500CAD9D8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiMvcApp", "ReversiMvcApp\ReversiMvcApp\ReversiMvcApp.csproj", "{085DE240-E32E-415F-91C6-102E5853EB86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3DE566D8-B36F-4C87-93FA-724500CAD9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DE566D8-B36F-4C87-93FA-724500CAD9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DE566D8-B36F-4C87-93FA-724500CAD9D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{085DE240-E32E-415F-91C6-102E5853EB86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085DE240-E32E-415F-91C6-102E5853EB86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085DE240-E32E-415F-91C6-102E5853EB86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085DE240-E32E-415F-91C6-102E5853EB86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
