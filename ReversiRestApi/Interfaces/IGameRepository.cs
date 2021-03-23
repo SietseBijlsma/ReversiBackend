@@ -8,10 +8,10 @@ namespace ReversiRestApi.Interfaces
 {
     public interface IGameRepository
     {
-        Game AddGame(Game game);
-        public List<Game> GetGames();
-        Game GetGame(string PlayerToken);
+        Task<Game> AddGame(Game game);
+        public Task<List<Game>> GetGames();
+        Task<Game> GetGame(string PlayerToken);
 
-        public bool UpdateGame(Game game);
+        public Task<bool> UpdateGame(Game game);
     }
 }

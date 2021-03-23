@@ -44,7 +44,6 @@ namespace ReversiRestApi.Models
             Board[Size / 2 - 1, Size / 2] = Color.Black;
             Board[Size / 2, Size / 2 - 1] = Color.Black;
             Board[Size / 2, Size / 2] = Color.White;
-
         }
 
         /**
@@ -188,6 +187,17 @@ namespace ReversiRestApi.Models
             ChangeColorOnPieces(rowMove, colMove, GetPossibleDirections(rowMove, colMove));
 
             MoveCount++;
+
+            if (Finished())
+            {
+                var movingPlayer = "";
+                if (Moving == Player1Color)
+                    movingPlayer = Player1Token;
+                else
+                    movingPlayer = Player2Token;
+                FinishGame(movingPlayer);
+            }
+
             SwapMoving();
             return true;
         }
@@ -425,8 +435,9 @@ namespace ReversiRestApi.Models
          */
         public void FinishGame(string winner)
         {
-            Winner = winner;
-            Status = GameStatus.Finished;
+           
+                Winner = winner;
+                Status = GameStatus.Finished;
         }
 
         /**

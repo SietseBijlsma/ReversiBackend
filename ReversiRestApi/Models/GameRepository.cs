@@ -31,7 +31,7 @@ namespace ReversiRestApi.Models
             Games = new List<Game> { Game1, Game2, Game3 };
         }
 
-        public Game AddGame(Game game)
+        public async Task<Game> AddGame(Game game)
         {
             Games.Add(game);
             game.Token = RandomStringGenerator.RandomString(15, true);
@@ -39,10 +39,10 @@ namespace ReversiRestApi.Models
             return game;
         }
 
-        public List<Game> GetGames() => Games;
-        public Game GetGame(string GameToken) => Games.FirstOrDefault(x => x.Token == GameToken);
+        public async Task<List<Game>> GetGames() => Games;
+        public async Task<Game> GetGame(string GameToken) => Games.FirstOrDefault(x => x.Token == GameToken);
 
-        public bool UpdateGame(Game game)
+        public async Task<bool> UpdateGame(Game game)
         {
             return true;
         }

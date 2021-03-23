@@ -21,8 +21,8 @@ namespace ReversiRestApi.Controllers
         }
 
         [HttpGet("{playerToken}")]
-        public ActionResult<IEnumerable<ApiGame>> GetAllJoinedGames(string playerToken) => iRepository
-            .GetGames().FindAll(x => x.Player1Token == playerToken || x.Player2Token == playerToken)
+        public async Task<ActionResult<IEnumerable<ApiGame>>> GetAllJoinedGames(string playerToken) => (await iRepository
+            .GetGames()).FindAll(x => x.Player1Token == playerToken || x.Player2Token == playerToken)
             .Select(ApiGame.GameToApiGame).ToList();
     }
 }

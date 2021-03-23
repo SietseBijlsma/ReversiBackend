@@ -22,30 +22,30 @@ namespace ReversiRestApi.Controllers
         }
 
         [HttpGet("waiting")]
-        public ActionResult<IEnumerable<ApiGame>> GetGamesWithWaitingPlayers() => iRepository
-            .GetGames().FindAll(x => x.Status == GameStatus.Waiting).Select(ApiGame.GameToApiGame).ToList();
+        public async Task<ActionResult<IEnumerable<ApiGame>>> GetGamesWithWaitingPlayers() => (await iRepository
+            .GetGames()).FindAll(x => x.Status == GameStatus.Waiting).Select(ApiGame.GameToApiGame).ToList();
 
         [HttpGet("waitingNotFull")]
-        public ActionResult<IEnumerable<ApiGame>> GetGamesWithWaitingPlayersNotFull() => iRepository
-            .GetGames().FindAll(x => x.Status == GameStatus.Waiting && x.Player2Token == String.Empty).Select(ApiGame.GameToApiGame).ToList();
+        public async Task<ActionResult<IEnumerable<ApiGame>>> GetGamesWithWaitingPlayersNotFull() => (await iRepository
+            .GetGames()).FindAll(x => x.Status == GameStatus.Waiting && x.Player2Token == String.Empty).Select(ApiGame.GameToApiGame).ToList();
 
         [HttpGet]
-        public ActionResult<IEnumerable<ApiGame>> GetAllGames() =>
-            iRepository.GetGames().Select(ApiGame.GameToApiGame).ToList();
+        public async Task<ActionResult<IEnumerable<ApiGame>>> GetAllGames() =>
+            (await iRepository.GetGames()).Select(ApiGame.GameToApiGame).ToList();
 
         [HttpGet("{token}")]
-        public ActionResult<ApiGame> GetGameWithToken(string token)
+        public async Task<ActionResult<ApiGame>> GetGameWithToken(string token)
         {
-            var game = iRepository.GetGame(token);
+            var game = await iRepository.GetGame(token);
             if (game is null)
                 return NotFound();
             return ApiGame.GameToApiGame(game);
         }
 
         [HttpPost]
-        public ApiGame AddNewGame([FromBody] ApiGame game)
+        public async Task<ApiGame> AddNewGame([FromBody] ApiGame game)
         {
-            var result = iRepository.AddGame(new Game()
+            var result = await iRepository.AddGame(new Game()
             {
                 Description = game.Description,
                 Player1Token = game.Player1Token,
@@ -55,23 +55,23 @@ namespace ReversiRestApi.Controllers
         }
 
         [HttpPut("{token}/join")]
-        public ActionResult<ApiGame> JoinGame(string token, [FromBody] ApiMove body)
+        public async Task<ActionResult<ApiGame>> JoinGame(string token, [FromBody] ApiMove body)
         {
-            var game = iRepository.GetGame(token);
+            var game = await iRepository.GetGame(token);
             if (game is null)
                 return NotFound();
 
             if (!game.Join(body.Player))
                 return Unauthorized();
 
-            var result = iRepository.UpdateGame(game);
+            var result = await iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
         }
 
         [HttpPut("{token}/move")]
-        public ActionResult<ApiGame> PlayerMove(string token, [FromBody] ApiMove body)
+        public async Task<ActionResult<ApiGame>> PlayerMove(string token, [FromBody] ApiMove body)
         {
-            var game = iRepository.GetGame(token);
+            var game = await iRepository.GetGame(token);
             if (game is null)
                 return NotFound();
 
@@ -84,13 +84,14 @@ namespace ReversiRestApi.Controllers
             if (!game.Move(body.Row, body.Col))
                 return Unauthorized();
 
+            await iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
         }
 
         [HttpPut("{token}/start")]
-        public ActionResult<ApiGame> StartGame(string token)
+        public async Task<ActionResult<ApiGame>> StartGame(string token)
         {
-            var game = iRepository.GetGame(token);
+            var game = await iRepository.GetGame(token);
             if (game is null)
                 return NotFound();
 
@@ -98,14 +99,15 @@ namespace ReversiRestApi.Controllers
 
             if (startingGame == false)
                 return Forbid();
+            await iRepository.UpdateGame(game);
 
             return ApiGame.GameToApiGame(game);
         }
 
         [HttpPut("{token}/surrender")]
-        public ActionResult<ApiGame> Surrender(string token, [FromBody] ApiMove body)
+        public async Task<ActionResult<ApiGame>> Surrender(string token, [FromBody] ApiMove body)
         {
-            var game = iRepository.GetGame(token);
+            var game = await iRepository.GetGame(token);
             if (game is null)
                 return NotFound();
 

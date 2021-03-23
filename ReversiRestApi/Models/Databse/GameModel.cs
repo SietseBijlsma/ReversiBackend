@@ -64,8 +64,8 @@ namespace ReversiRestApi.Models.Databse
                 MoveCount = game.MoveCount,
                 Winner = game.Winner,
                 Size = game.Size,
-                Player1Color = game.Player2Token != null ? game.Player1Color : Color.None,
-                Player2Color = game.Player2Token != null ? game.Player1Color : Color.None
+                Player1Color = game.Player1Token != null ? game.Player1Color : Color.None,
+                Player2Color = game.Player2Token != null ? game.Player2Color : Color.None
             };
         }
     }

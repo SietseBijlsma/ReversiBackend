@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
 
 @model ReversiRestApi.Models.ApiGame
 
@@ -18,43 +19,35 @@
 
 @section scripts {
     <script src="@Url.Content("~/js/app.js")" type="text/javascript"></script>
+    <script src="~/js/signalr/signalr.js"></script>
 
     <script type="text/javascript">
-        Game.init("developement", "@Model.Token");
+        Game.init("production", "@Model.Token", "@this.User.FindFirst(ClaimTypes.NameIdentifier).Value");
     </script>
 
     <script type="text/javascript">
-        "use strict";
 
         var connection = new signalR.HubConnectionBuilder().withUrl("/gameHub").build();
 
+        async function start() {
+            try {
+                await connection.start();
+                await connection.invoke("JoinGroup", "@Model.Token");
+            } catch (err) {
+                setTimeout(start, 5000);
+            }
+        }
+        connection.onclose(start);
+        start();
+
         connection.on("ReceiveMessage",
             function(gameToken, message) {
-
+                Game.update();
             });
 
-        connection.start().catch(function(err) {
-            return console.error(err.toString());
+        $('#board').on('updateBoard', async function() {
+            await connection.invoke("SendMessageToGroup", "@Model.Token", "test");
         });
-
-        $(() => {
-            connection.invoke("JoinGroup", "@Model.Token").catch(function(err) {
-                return console.error(err.toString());
-            });
-
-        document.getElementById("cell").addEventListener("click",
-            function(event) {
-
-                connection.invoke("SendMessageToGroup", "groupName", message).catch(function(err) {
-                    return console.error(err.toString());
-                });
-                event.preventDefault();
-            });
-
        
-
     </script>
-
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/app.js"></script>
 }

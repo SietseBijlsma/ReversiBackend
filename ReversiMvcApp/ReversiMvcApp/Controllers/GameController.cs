@@ -30,6 +30,7 @@ namespace ReversiMvcApp.Controllers
             return RedirectToAction("Board", new {token = result.Token});
         }
 
+        [Authorize]
         public async Task<IActionResult> Waiting()
         {
             var games = await _apiController.GetList<ApiGame>("game/waitingNotFull");
@@ -37,6 +38,7 @@ namespace ReversiMvcApp.Controllers
             return View(games);
         }
 
+        [Authorize]
         [HttpGet("[controller]/joined")]
         public async Task<IActionResult> Joined()
         {
@@ -60,9 +62,9 @@ namespace ReversiMvcApp.Controllers
         [HttpGet("[controller]/{token}/start")]
         public async Task<IActionResult> Start(string token)
         {
-            await _apiController.GetAsync<ApiGame>("game/" + token + "/start");
+            await _apiController.PutAsync<ApiGame>(new ApiGame(), "game/" + token + "/start");
 
-            return Redirect(Request.Path.ToString());
+            return RedirectToAction("Board", new {token = token});
         }
 
         public IActionResult Create()
