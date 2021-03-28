@@ -76,6 +76,7 @@ const Game = ((url) =>{
        
         Game.Data.init(env);
         Game.Board.init('board', token, playerToken);
+        Game.Status(token, playerToken);
         // setInterval(() => {
         //     _getCurrentGamestate()
         // }, 2000)
@@ -201,26 +202,28 @@ Game.Board = (() =>{
         moving : 1, 
         board: [],
         currentPlayerToken: "",
+        status,
     }
 
     const board = () => {
-        $boardTemplate = $(`<div class="board" style="
-        grid-template-columns: repeat(${configMap.boardSize}, 4rem); 
-        grid-template-rows: repeat(${configMap.boardSize}, 4rem);"
-        ></div>`);
+        // $boardTemplate = $(`<div class="board" style="
+        // grid-template-columns: repeat(${configMap.boardSize}, 4rem); 
+        // grid-template-rows: repeat(${configMap.boardSize}, 4rem);"
+        // ></div>`);
 
-        for (let row = 0; row < configMap.boardSize; row++) {
-            for (let col = 0; col < configMap.boardSize; col++) {
-                $cell = $(`<div class="cell" data-row="${row}" data-col="${col}"><div class="fiche"></div></div>`);
+        // for (let row = 0; row < configMap.boardSize; row++) {
+        //     for (let col = 0; col < configMap.boardSize; col++) {
+        //         $cell = $(`<div class="cell" data-row="${row}" data-col="${col}"><div class="fiche"></div></div>`);
 
-                $cell.on('click', function () {
-                    _placeFiche($(this).attr('data-row'), $(this).attr('data-col'));
-                });
-                $boardTemplate.append($cell);
-            }
-        }
+        //         $cell.on('click', function () {
+        //             _placeFiche($(this).attr('data-row'), $(this).attr('data-col'));
+        //         });
+        //         $boardTemplate.append($cell);
+        //     }
+        // }
 
-        stateMap.$board.append($boardTemplate);
+        // stateMap.$board.append($boardTemplate);
+        _updateBoard();
     }
 
     const _init = (parentBoard, token, playerToken) => {
@@ -231,62 +234,121 @@ Game.Board = (() =>{
     }
 
     const _placeFiche = async (row, col) => {
-       let result = await Game.Data.put(`game/${stateMap.token}/move`, {
-            row: parseInt(row),
-            col: parseInt(col),
-            player: stateMap.currentPlayerToken
-       }).then(res => res).catch(e => false);
+       if(!stateMap.status == "Finished") {
+            let result = await Game.Data.put(`game/${stateMap.token}/move`, {
+                row: parseInt(row),
+                col: parseInt(col),
+                player: stateMap.currentPlayerToken
+            }).then(res => res).catch(e => false);
 
-       if(result) {
-           _update();
-           _updateBoard();
-           stateMap.$board.trigger('updateBoard');
+            if(result) {
+                _update();
+                _updateBoard();
+                stateMap.$board.trigger('updateBoard');
+            }
        }
     }
 
     const _updateBoard = () => {
-        for (let row = 0; row < configMap.boardSize; row++) {
-            for (let col = 0; col < configMap.boardSize; col++) {
-                let color = "";
-                if(stateMap.board[row][col] == 1) {
-                    color = "white";
-                }
-                else if(stateMap.board[row][col] == 2) {
-                    color = "black";
-                }
+        // for (let row = 0; row < configMap.boardSize; row++) {
+        //     for (let col = 0; col < configMap.boardSize; col++) {
+        //         let color = "";
+        //         if(stateMap.board[row][col] == 1) {
+        //             color = "white";
+        //         }
+        //         else if(stateMap.board[row][col] == 2) {
+        //             color = "black";
+        //         }
 
-                if(color == "white") {
-                    _getCoords(row, col).find('.fiche').removeClass("black");
-                }
-                else if (color == "black") {
-                    _getCoords(row, col).find('.fiche').removeClass("white");
-                }
-                _getCoords(row, col).find('.fiche').addClass(color);
-            }
-        }
+        //         if(color == "white") {
+        //             _getCoords(row, col).find('.fiche').removeClass("black");
+        //         }
+        //         else if (color == "black") {
+        //             _getCoords(row, col).find('.fiche').removeClass("white");
+        //         }
+        //         _getCoords(row, col).find('.fiche').addClass(color);
+        //     }
+        // }
+        stateMap.$board.html(Game.Templates.parseTemplate("game.board", {'board': stateMap.board, 'boardSize': 8}));
+
     }
 
     const _update = () => {
         Game.Data.get("game/" + stateMap.token).then(res => {
             stateMap.board = JSON.parse(res.board);
             stateMap.moving = res.moving;
+            stateMap.status = res.status;
             _updateBoard();
+            Game.Status.updateStatus(res.moving);
         }).catch(_ => {
-            
-            _update();
+           _update();
         })
     }
 
-    const _getCoords = (row, col) => {
-        if(row >= 0 && row < configMap.boardSize && col >= 0 && col < configMap.boardSize) {
-            return stateMap.$board.find(`.cell[data-row="${row}"][data-col="${col}"]`);
-        }
-        return false;
-    }
+    // const _getCoords = (row, col) => {
+    //     if(row >= 0 && row < configMap.boardSize && col >= 0 && col < configMap.boardSize) {
+    //         return stateMap.$board.find(`.cell[data-row="${row}"][data-col="${col}"]`);
+    //     }
+    //     return false;
+    // }
 
     return {
         init: _init,
         placeFiche: _placeFiche,
         update: _update,
+    }
+
+})()
+
+Game.Templates = (() =>{
+    const _getTemplate = (templateName) => {
+        if(typeof spa_templates === 'undefined') {
+            throw new Error('Templates have not been compiled yet. Run gulp build');
+        }
+
+        let templates = spa_templates.templates;
+
+        templateName.split('.').forEach(element => {
+            templates = templates[element];
+        });
+
+        return templates;
+    }
+
+    const _parseTemplate = (templateName, data) => {
+        const template = _getTemplate(templateName);
+
+        return template(data);
+    }
+
+    return {
+        getTemplate: _getTemplate,
+        parseTemplate: _parseTemplate,
+    }
+})()
+
+Game.Status = (() => {
+    let stateMap = {
+        token: "",
+        currentPlayerToken: "",
+    }
+    
+    const _init = (token, playerToken) => {
+        stateMap.token = token;
+        stateMap.currentPlayerToken = playerToken;
+    }
+
+    const _updateStatus = (moving) => {
+        if(stateMap.currentPlayerToken === moving) {
+            //it is your turn (color)
+        }
+        else {
+            //wait for your opponent to make a move (color)
+        }
+    }
+
+    return {
+        init: _init,
+        updateStatus: _updateStatus,
     }
 })()

@@ -197,8 +197,11 @@ namespace ReversiRestApi.Models
                     movingPlayer = Player2Token;
                 FinishGame(movingPlayer);
             }
+            else
+            {
+                SwapMoving();
+            }
 
-            SwapMoving();
             return true;
         }
 
@@ -435,7 +438,6 @@ namespace ReversiRestApi.Models
          */
         public void FinishGame(string winner)
         {
-           
                 Winner = winner;
                 Status = GameStatus.Finished;
         }

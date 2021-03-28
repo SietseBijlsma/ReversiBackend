@@ -67,6 +67,17 @@ namespace ReversiMvcApp.Controllers
             return RedirectToAction("Board", new {token = token});
         }
 
+        [HttpGet("[controller]/{token}/surrender")]
+        public async Task<IActionResult> SurrenderGame(string token)
+        {
+            await _apiController.PutAsync<ApiMove>(new ApiMove()
+            {
+                Player = this.User.FindFirst(ClaimTypes.NameIdentifier).Value
+            }, "game/" + token + "/surrender");
+
+            return RedirectToAction("Board", new { token = token });
+        }
+
         public IActionResult Create()
         {
             return View();
