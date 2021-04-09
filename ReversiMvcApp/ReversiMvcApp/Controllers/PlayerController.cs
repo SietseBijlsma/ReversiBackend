@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,135 +19,81 @@ namespace ReversiMvcApp.Controllers
             _context = context;
         }
 
-        // GET: Player
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Players.ToListAsync());
-        }
-
-        // GET: Player/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.Guid == id);
-            if (player == null)
-            {
-                return NotFound();
-            }
-
-            return View(player);
-        }
-
-        // GET: Player/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Player/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Guid,Name,AmountWon,AmountLost,AmountDraw")] Player player)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(player);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(player);
-        }
-
-        // GET: Player/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var player = await _context.Players.FindAsync(id);
-            if (player == null)
-            {
-                return NotFound();
-            }
-            return View(player);
-        }
-
-        // POST: Player/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Guid,Name,AmountWon,AmountLost,AmountDraw")] Player player)
-        {
-            if (id != player.Guid)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(player);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PlayerExists(player.Guid))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(player);
-        }
-
-        // GET: Player/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.Guid == id);
-            if (player == null)
-            {
-                return NotFound();
-            }
-
-            return View(player);
-        }
-
-        // POST: Player/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var player = await _context.Players.FindAsync(id);
-            _context.Players.Remove(player);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
         private bool PlayerExists(string id)
         {
             return _context.Players.Any(e => e.Guid == id);
+        }
+
+        public async Task<Player> GetLoggedInPlayer(Controller origin)
+        {
+            return await GetPlayerOrCreate(origin.User);
+        }
+
+        public async Task<Player> GetLoggedInPlayer(ClaimsPrincipal user)
+        {
+            return await GetPlayerOrCreate(user);
+        }
+
+        public async Task<Player> GetPlayerOrCreate(ClaimsPrincipal user)
+        {
+            var guid = user.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var name = user.FindFirst(ClaimTypes.Name).Value;
+            var email = user.FindFirst(ClaimTypes.Email)?.Value;
+            return GetPlayer(guid) ?? await CreatePlayer(guid, name, email ?? name);
+        }
+
+        public async Task<Player> CreatePlayer(string name, string guid, string email)
+        {
+            Player player = new Player()
+            {
+                Guid = name,
+                Name = guid,
+                AmountWon = 0,
+                AmountDraw = 0,
+                AmountLost = 0,
+                Email = email
+            };
+            _context.Players.Add(player);
+            _context.SaveChangesAsync();
+            return player;
+        }
+
+        public async Task SavePlayer(Player player)
+        {
+            var current =  await _context.Players.FirstOrDefaultAsync(x => x.Email == player.Email);
+            _context.Entry(current).State = EntityState.Detached;
+
+            current = player;
+
+            _context.Entry(current).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public Player GetPlayer(string guid)
+        {
+            return _context.Players.FirstOrDefault(x => x.Guid == guid);
+        }
+
+        public Player GetPlayer(ClaimsPrincipal user)
+        {
+            var guid = user.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return GetPlayer(guid);
+        }
+        public async Task DeletePlayer(string guid)
+        {
+            var player = _context.Players.FirstOrDefault(x => x.Guid == guid);
+
+            if (player != null)
+            {
+                _context.Players.Remove(player);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<IEnumerable<Player>> GetPlayers()
+        {
+            return await _context.Players.ToListAsync();
         }
     }
 }

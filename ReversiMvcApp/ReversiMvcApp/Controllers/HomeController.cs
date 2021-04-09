@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
@@ -13,14 +14,18 @@ namespace ReversiMvcApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly PlayerController _playerController;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, PlayerController playerController)
         {
             _logger = logger;
+            _playerController = playerController;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+           /* if (this.User.FindFirst(ClaimTypes.NameIdentifier).Value != null)
+                await _playerController.GetLoggedInPlayer(this);*/
             return View();
         }
 

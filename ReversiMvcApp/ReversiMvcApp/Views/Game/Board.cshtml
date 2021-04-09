@@ -22,9 +22,20 @@
     else if (Model.Status.Equals("Finished"))
     {
         <p>Game has ended</p>
+        if (Model.Winner == this.User.FindFirst(ClaimTypes.NameIdentifier).Value)
+        {
+            <p>You have won the game</p>
+        }
+        else if (Model.Winner == "")
+        {
+            <p>The game is a draw</p>
+        }
+        else
+        {
+            <p>Your opponent has won the game</p>
+        }
         <a asp-action="Waiting" class="btn btn-primary">Leave the game</a>
     }
-    <p>@Model.Status</p>
 </head>
 
 <div id="board"></div>
@@ -38,6 +49,8 @@
     <script type="text/javascript">
         Game.init("production", "@Model.Token", "@this.User.FindFirst(ClaimTypes.NameIdentifier).Value");
     </script>
+
+    <canvas id="gameChart" width="200" height="200"></canvas>
 
     <script type="text/javascript">
 

@@ -59,5 +59,5 @@ this["spa_templates"]["templates"]["game"]["board"] = Handlebars.template({"1":f
     + "</div>\r\n";
 },"useData":true,"useDepths":true});
 this["spa_templates"]["templates"]["game"]["info"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
+    return "<div class=\"boardInfo\">\r\n    \r\n</div>";
 },"useData":true});

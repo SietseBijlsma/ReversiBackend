@@ -17,6 +17,7 @@ namespace ReversiRestApi.Models
         public string Board { get; set; }
         public string Moving { get; set; }
         public string Status { get; set; }
+        public string Winner { get; set; }
 
         public static ApiGame GameToApiGame(Game game)
         {
@@ -28,7 +29,8 @@ namespace ReversiRestApi.Models
                 Player1Token = game.Player1Token,
                 Player2Token = game.Player2Token,
                 Moving = game.Moving.ToString(),
-                Status = game.Status.ToString()
+                Status = game.Status.ToString(),
+                Winner = game.Winner
             };
         }
     }

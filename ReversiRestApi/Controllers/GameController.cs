@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using ReversiRestApi.DAL;
@@ -38,7 +39,7 @@ namespace ReversiRestApi.Controllers
         {
             var game = await iRepository.GetGame(token);
             if (game is null)
-                return NotFound();
+                return StatusCode((int) HttpStatusCode.NotFound, "Could not find game");
             return ApiGame.GameToApiGame(game);
         }
 
@@ -59,10 +60,10 @@ namespace ReversiRestApi.Controllers
         {
             var game = await iRepository.GetGame(token);
             if (game is null)
-                return NotFound();
+                return StatusCode((int)HttpStatusCode.NotFound, "Could not find game");
 
             if (!game.Join(body.Player))
-                return Unauthorized();
+                return StatusCode((int)HttpStatusCode.Unauthorized, "Not allowed to join");
 
             var result = await iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
@@ -73,16 +74,16 @@ namespace ReversiRestApi.Controllers
         {
             var game = await iRepository.GetGame(token);
             if (game is null)
-                return NotFound();
+                return StatusCode((int)HttpStatusCode.NotFound, "Could not find game");
 
             if (game.Moving != game.GetPlayerColor(body.Player))
-                return Unauthorized();
+                return StatusCode((int)HttpStatusCode.Unauthorized, "It is not your move");
 
             if (game.Status != GameStatus.Running)
-                return Unauthorized();
+                return StatusCode((int)HttpStatusCode.Unauthorized, "Game hasn't started yet");
 
             if (!game.Move(body.Row, body.Col))
-                return Unauthorized();
+                return StatusCode((int)HttpStatusCode.Unauthorized, "Invalid move");
 
             await iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
@@ -93,12 +94,12 @@ namespace ReversiRestApi.Controllers
         {
             var game = await iRepository.GetGame(token);
             if (game is null)
-                return NotFound();
+                return StatusCode((int)HttpStatusCode.NotFound, "Could not find game");
 
             var startingGame = game.StartGame();
 
             if (startingGame == false)
-                return Forbid();
+                return StatusCode((int)HttpStatusCode.Unauthorized, "Could not start game");
             await iRepository.UpdateGame(game);
 
             return ApiGame.GameToApiGame(game);
@@ -109,12 +110,13 @@ namespace ReversiRestApi.Controllers
         {
             var game = await iRepository.GetGame(token);
             if (game is null)
-                return NotFound();
+                return StatusCode((int)HttpStatusCode.NotFound, "Could not find game");
 
             if (body.Player is null)
-                return BadRequest();
+                return StatusCode((int)HttpStatusCode.NotFound, "No player found");
 
             game.SurrenderGame(body.Player);
+            await iRepository.UpdateGame(game);
             return ApiGame.GameToApiGame(game);
         }
     }

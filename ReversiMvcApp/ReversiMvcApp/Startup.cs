@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Authenticator;
 using Microsoft.Extensions.Options;
 using ReversiMvcApp.Controllers;
 using ReversiMvcApp.Models;
@@ -33,8 +34,6 @@ namespace ReversiMvcApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -43,14 +42,37 @@ namespace ReversiMvcApp
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ReversiDbConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddDefaultUI()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<ApplicationDbContext>();*/
+
+            var dbConetxtUsers = services.BuildServiceProvider().GetRequiredService<ApplicationDbContext>();
+            dbConetxtUsers.Database.Migrate();
+
+            var dbConetxtReversi = services.BuildServiceProvider().GetRequiredService<ReversiDbContext>();
+            dbConetxtReversi.Database.Migrate();
 
             services.AddTransient<ApiController, ApiController>();
+
+            services.AddTransient<GoogleAuthenticator>();
+            services.AddTransient<PlayerController>();
 
             services.AddSignalR();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("RolePage",
+                    builder => builder.RequireRole("Admin", "Mediator"));
+                options.AddPolicy("Edit",
+                    builder => builder.RequireRole("Admin"));
+                options.AddPolicy("Ban",
+                    builder => builder.RequireRole("Admin", "Mediator"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
